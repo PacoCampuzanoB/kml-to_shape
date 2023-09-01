@@ -12,7 +12,7 @@ import os
 import pandas as pd
 import fiona
 from shapely.geometry import Point
-#import subprocess
+import subprocess
 
 ############################################################################################
 
@@ -63,7 +63,7 @@ for k in range (len(files)):
         listaFinal = []
         numChar = 4    
         char = []
-        while (lista[numChar] != '<'):                          # Nombre y Situación
+        while (lista[numChar] != '<'):                          #   Nombre y Situación
             char.append(lista[numChar])
             numChar += 1
         info = "".join(char)
@@ -105,7 +105,7 @@ for k in range (len(files)):
                 listaFinal.append(info)    
             else:
                 listaFinal.append('****')
-                 
+
         diccionario['clave'].append(df.iloc[j, 0])
         diccionario['nombre'].append(listaFinal[0])
         diccionario['situacion'].append(listaFinal[1])
@@ -151,5 +151,5 @@ estacionesNal.to_file("shapes/estClimNal1.shp", driver='ESRI Shapefile')
 # Se utliza un script bash para unir los shapes de cada estado
 ###########################################################################################
 
-#os.chdir('/home/sear/Desktop/estacionesClimatologicas/estClimSEGOB/EstacionesClimatologicas.kmz_FILES/shapes')
-#subprocess.call(['./unirShapes.sh']) # Para ejecutar scripts en python
+os.chdir('/home/sear/Desktop/estacionesClimatologicas/estClimSEGOB/EstacionesClimatologicas.kmz_FILES/shapes')
+subprocess.call(['./unirShapes.sh']) # Para ejecutar scripts en python
