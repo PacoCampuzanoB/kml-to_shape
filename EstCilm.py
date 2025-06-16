@@ -4,7 +4,13 @@
 Created on Sat Apr 18 21:22:09 2020
 
 @author: searCampuzano
-
+Nota: Este script surge de la necesidad de convertir un archivo kml a capa geográfica shape file o gpkg,
+al principio no sabía que se puede extraer la tabla de atributos con pykml o con BeatifulSoup, haciendo
+el proceso muuucho más fácil.
+Este script toma un dataframe generado a partir de qgis, qgis intenta convertir el kml a shape-file, pero 
+lo que sucede es que toda la info para cada estación la coloca en una celda :V.
+Así que este script toma la capa shape file y va tomando una fila por estación, y a partir de esto
+se genera la tlabla de atributos para generar la capa geográfica correcta
 """
 
 import geopandas as gpd
